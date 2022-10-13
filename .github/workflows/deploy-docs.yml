@@ -2,8 +2,8 @@ name: Deploy Storybook
 
 on:
   push:
-  branches:
-    - main
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,13 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.JS
-        uses: sctions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build Storybook
         run: npm run build-storybook
